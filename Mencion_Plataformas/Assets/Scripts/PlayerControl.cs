@@ -21,10 +21,25 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
+        DirDetect();
     }
 
     private void Movement()
     {
         rb.velocity = new Vector2(speedPlayer * Input.GetAxis("Horizontal"), rb.velocity.y); // <--------------------- con este no vibra al colisionar con las paredes y objetos.
+    }
+
+    private void DirDetect()
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            //cambiar de direccion el personaje derecha
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            //cambiar  de direccion personaje izquierda
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 }
