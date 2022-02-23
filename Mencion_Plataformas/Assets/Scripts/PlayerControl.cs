@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -29,8 +28,6 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
-
         Movement();
         DirDetect();
         GroundCheck();
@@ -46,7 +43,6 @@ public class PlayerControl : MonoBehaviour
             anim.SetFloat("MoveSpeed", Mathf.Abs(movement));
         }
     }
-
     void GroundCheck()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
